@@ -1,0 +1,57 @@
+<!--
+Author:Aline Vetrov
+Date: Jan.21, 2020
+Title: JS ex 4
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Birthday</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let year = prompt("enter year of birth");
+        let month = prompt("enter month of birth");
+        let day = prompt("enter day of birth");
+
+        //check for numeric
+
+        if (isNaN(year) || isNaN(month) || isNaN(day)) {
+
+            alert("non numeric values were entered.");
+            document.writeln(`<p>non numeric values were entered.</p>`);
+
+        } else {
+            
+            
+
+            let dob = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+
+            let seconds = prompt("enter seconds");
+
+            let days = seconds/60/60/24;
+
+            let nextDate = new Date(dob);
+            nextDate.setDate(nextDate.getDate() + days);
+
+            
+
+            document.writeln(`<h1>Birtday after ${seconds/1000000000} billion seconds</h1>`);
+            document.writeln(`<p>birth date is ${dob.toString()}</p>`);
+            document.writeln(`<p>num of seconds is ${seconds}</p>`);
+            document.writeln(`<p>Age after ${seconds} seconds is ${nextDate.getFullYear() - dob.getFullYear()}</p>`);
+            document.writeln(`<p>Date aftre ${seconds} seconds is ${nextDate.toString()}</p>`);
+        }
+
+        
+    </script>
+
+</body>
+</html>
